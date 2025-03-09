@@ -11,10 +11,10 @@ type Chunk struct {
 }
 
 // chunks the files into fixed-size chunks
-func ChunkFile(filePath string, chunkSize int) ([]Chunk, error) {
+func ChunkFile(file string, chunkSize int) ([]Chunk, error) {
 	var chunks []Chunk
 
-	scanner := bufio.NewScanner(Reader(filePath))
+	scanner := bufio.NewScanner(Reader(file))
 	buf := make([]byte, chunkSize)
 	scanner.Buffer(buf, chunkSize)
 
